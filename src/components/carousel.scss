@@ -1,15 +1,16 @@
 .carousel_container {
   overflow: auto;
-  .carousel {
-    height: 60vh;
-    width: 100%;
-    display: flex;
 
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  .carousel {
+    display: flex;
     .item {
       min-width: 100vw;
-      height: 60vh;
+      height: 50vh;
       object-fit: contain;
-      margin-top: 5vw;
+      margin-top: calc(0.5vw + 0.5vh);
     }
   }
 }

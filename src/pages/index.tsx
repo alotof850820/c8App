@@ -7,6 +7,13 @@ const Index = () => {
     <div className="index">
       <TopBar num={0}></TopBar>
       <Carousel></Carousel>
+      <div className="title">C=8選品</div>
+      <div className="content">
+        <div>1</div>
+        <div>1</div>
+        <div>1</div>
+        <div>1</div>
+      </div>
     </div>
   );
 };
