@@ -1,0 +1,15 @@
+.carousel_container {
+  overflow: auto;
+  .carousel {
+    height: 60vh;
+    width: 100%;
+    display: flex;
+
+    .item {
+      min-width: 100vw;
+      height: 60vh;
+      object-fit: contain;
+      margin-top: 5vw;
+    }
+  }
+}
