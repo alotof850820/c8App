@@ -4,4 +4,17 @@ body {
   box-sizing: border-box;
   font-family: "Noto Sans TC", sans-serif;
   font-size: 3vw;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.limit_row_2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2; 
+  text-overflow: ellipsis;
+  white-space: normal; 
 }

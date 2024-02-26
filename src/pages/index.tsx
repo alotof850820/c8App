@@ -1,19 +1,18 @@
 import "./index.scss";
 import TopBar from "@/components/TopBar";
 import Carousel from "@/components/Carousel";
+import Item from "@/components/Item";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
     <div className="index">
       <TopBar num={0}></TopBar>
       <Carousel></Carousel>
-      <div className="title">C=8選品</div>
-      <div className="content">
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-        <div>1</div>
-      </div>
+      <Item></Item>
+      <Item></Item>
+      <Item></Item>
+      <Footer></Footer>
     </div>
   );
 };

@@ -1,6 +1,9 @@
 .top_bar {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: calc(5vw + 3vh);
+  height: calc(4vw + 2vh);
   background: #fff;
   display: flex;
   align-items: center;
@@ -10,15 +13,17 @@
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
   font-size: calc(2vw + 1vh);
+  z-index: 999;
 
   .left {
     display: flex;
     align-items: center;
     gap: 2vw;
     padding: 0 1vw;
+    font-size: 2.5vw; ;
   }
   .center {
-    // font-size: 2.5vw;
+    font-size: 2vw;
   }
   .right {
     display: flex;
@@ -44,13 +49,14 @@
     }
 
     .list {
-      height: calc(5vw + 3vh);
-      width: calc(5vw + 3vh);
+      height: calc(4vw + 2vh);
+      width: calc(4vw + 2vh);
       display: flex;
       align-items: center;
       justify-content: center;
       background-color: #cccccc33;
       color: #333333;
+      cursor: pointer;
     }
   }
 }
