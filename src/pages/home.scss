@@ -1,0 +1,114 @@
+.home_container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  .top_box {
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4vw;
+    .title {
+      font-family: "Comic Sans MS";
+      font-size: 7vw;
+      font-weight: bold;
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7vw;
+
+      .avator_box {
+        width: 7vw;
+        height: 7vw;
+        border-radius: 50%;
+        position: relative;
+
+        .avator {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        &::after {
+          content: "";
+          width: 1.8vw;
+          height: 1.8vw;
+          border-radius: 50%;
+          position: absolute;
+          top: -10%;
+          right: -15%;
+        }
+      }
+    }
+  }
+  .main {
+    overflow: auto;
+    flex: 1;
+    .users_box {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      gap: 4vw;
+      padding: 1vw 4vw;
+      overflow: auto;
+
+      .user {
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1.5vw;
+        .avator {
+          width: 17vw;
+          height: 17vw;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          img {
+            width: 16vw;
+            height: 15.5vw;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+        }
+
+        .name {
+          font-size: 3.5vw;
+          font-weight: 300;
+        }
+      }
+    }
+    .keyword_list {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      gap: 4vw;
+      padding: 4vw;
+      overflow: auto;
+      .keyword {
+        font-size: 3.5vw;
+        font-weight: 300;
+        white-space: nowrap;
+        padding: 2vw 4vw;
+        border-radius: 6px;
+      }
+    }
+    .video_box {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+  }
+}

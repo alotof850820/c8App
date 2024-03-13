@@ -1,31 +1,28 @@
-import { Icon } from "@iconify/react";
-import { FC, useState } from "react";
 import "./topbar.scss";
-import { TopBarProps } from "./types/topbar";
+import UseNavigate from "@/router/hook";
+import { Icon } from "@iconify/react/dist/iconify.js";
 
-const TopBar: FC<TopBarProps> = ({ num }) => {
-  const [number, setNumber] = useState(num);
+const TopBar = ({
+  title,
+  children,
+  style,
+}: {
+  title?: string;
+  children?: JSX.Element;
+  style?: React.CSSProperties;
+}) => {
+  const { goBack } = UseNavigate();
   return (
-    <div className="top_bar">
-      <div className="left">
-        <Icon icon="bitcoin-icons:search-outline" />
-        <Icon icon="solar:user-linear" />
-      </div>
-
-      <div className="center">C=8</div>
-
-      <div className="right">
-        <button onClick={() => setNumber(number + 1)}>+1</button>
-        <div className="cart_box">
-          <Icon icon="bi:cart" />
-          <span className="number_box">
-            <div className="number">{number}</div>
-          </span>
-        </div>
-
-        <div className="list">
-          <Icon icon="ph:list" />
-        </div>
+    <div className="top_bar " style={style}>
+      <div className="top_box">
+        <Icon
+          className="icon theme_font"
+          icon="flowbite:angle-left-outline"
+          fontSize={"7.5vw"}
+          onClick={goBack}
+        ></Icon>
+        <div className="register theme_font">{title}</div>
+        {children}
       </div>
     </div>
   );

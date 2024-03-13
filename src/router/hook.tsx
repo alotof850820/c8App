@@ -4,13 +4,13 @@ import { useNavigate } from "react-router-dom";
 const useRouter = () => {
   const navigate = useNavigate();
 
-  const goRouter = (path: string) => {
+  const go = (path: string) => {
     navigate(path);
   };
   const goBack = () => {
     navigate(-1);
   };
-  
-  return { goRouter, goBack };
+
+  return { go, goBack };
 };
 export default useRouter;

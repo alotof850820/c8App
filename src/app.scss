@@ -1,20 +1,146 @@
-body {
+@import "./variables.scss";
+
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: "Noto Sans TC", sans-serif;
-  font-size: 3vw;
 
   &::-webkit-scrollbar {
     display: none;
   }
 }
 
+html,
+body,
+#root {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 5vw;
+  width: 100vw;
+  height: 100vh;
+}
+
 .limit_row_2 {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  -webkit-line-clamp: 2; 
+  -webkit-line-clamp: 2;
   text-overflow: ellipsis;
-  white-space: normal; 
+  white-space: normal;
+  word-break: break-all;
+}
+.limit_row_1 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+  text-overflow: ellipsis;
+  white-space: normal;
+  word-break: break-all;
+}
+.limit_row_3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  text-overflow: ellipsis;
+  white-space: normal;
+  word-break: break-all;
+}
+
+body.dark {
+  .theme_bg {
+    background-color: $theme_dark;
+  }
+  .theme_font {
+    color: $title_dark;
+  }
+  .theme_icon {
+    color: $primary_dark;
+  }
+  .theme_note::after {
+    background-color: $note_dark;
+  }
+  .theme_avatar {
+    border: 0.8vw solid $avator_dark;
+    img {
+      border: 0.2vw solid black;
+    }
+  }
+  .theme_keyword {
+    color: $primary_dark;
+    border: 1px solid $primary_dark;
+  }
+  .theme_keyword.active {
+    background-color: $tab_bg_dark;
+    color: $primary_dark;
+    border: 1px solid $tab_bg_dark;
+  }
+  .theme_desc {
+    color: $desc_dark;
+  }
+  .theme_btn {
+    background-color: $btn_dark;
+    color: $title_dark;
+  }
+
+  .theme_tab1 {
+    color: $title_dark;
+  }
+  .theme_tab1.active {
+    color: $tab_dark;
+    border-bottom: 2px solid $tab_dark;
+  }
+  .theme_option {
+    background-color: $option_dark;
+    color: $option_dark_color;
+  }
+}
+
+body.light {
+  .theme_bg {
+    background-color: $theme_light;
+  }
+  .theme_font {
+    color: $title_light;
+  }
+  .theme_icon {
+    color: $primary_light;
+  }
+  .theme_note::after {
+    background-color: $note_light;
+  }
+  .theme_avatar {
+    border: 0.8vw solid $avator_light;
+    img {
+      border: 0.2vw solid white;
+    }
+  }
+  .theme_keyword {
+    color: $primary_light;
+    border: 1px solid $primary_light;
+  }
+  .theme_keyword.active {
+    background-color: $tab_bg_light;
+    color: $title_light;
+    border: 1px solid $tab_bg_light;
+  }
+  .theme_desc {
+    color: $desc_light;
+  }
+  .theme_btn {
+    background-color: $btn_light;
+    color: $title_light;
+  }
+
+  .theme_tab1 {
+    color: $title_light;
+  }
+  .theme_tab1.active {
+    color: $tab_light;
+    border-bottom: 2px solid $tab_light;
+  }
+  .theme_option {
+    background-color: $option_light;
+    color: $option_light_color;
+  }
 }
