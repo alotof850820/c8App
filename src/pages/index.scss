@@ -1,7 +1,7 @@
 .index_container {
-  width: 20rem;
-  height: 39.1rem;
-  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
   .bg_box {
     position: fixed;
     z-index: -1;
@@ -11,7 +11,7 @@
     .bg,
     .bg1 {
       width: 100%;
-      
+
       background-repeat: repeat-y;
       animation: slideUp 30s linear infinite;
       background-size: contain;
@@ -25,12 +25,10 @@
         }
       }
     }
-  
   }
-
   .main {
     width: 100%;
-    height: 100%;
+    flex: 1;
     background: transparent;
     background: linear-gradient(
       to bottom,
@@ -76,7 +74,6 @@
       .register {
         width: 100%;
         background-color: #9b73d3;
-        padding: 2vw;
         border-radius: 1vw;
         padding: 3vw;
         border-radius: 6px;
@@ -85,6 +82,97 @@
       .register {
         background-color: white;
         color: black;
+      }
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .index_container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    .bg_box {
+      position: fixed;
+      z-index: -1;
+      display: flex;
+      flex-direction: column;
+      width: 100vw;
+      .bg,
+      .bg1 {
+        width: 100%;
+
+        background-repeat: repeat-y;
+        animation: slideUp 30s linear infinite;
+        background-size: contain;
+        filter: brightness(1);
+        @keyframes slideUp {
+          0% {
+            transform: translateY(0%);
+          }
+          100% {
+            transform: translateY(-100%);
+          }
+        }
+      }
+    }
+    .main {
+      width: 100%;
+      flex: 1;
+      background: transparent;
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(0, 0, 0, 0.8) 100%
+      );
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: column;
+
+      .title_box {
+        width: 100%;
+        display: flex;
+        margin-top: 10vh;
+        align-items: start;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 10vw;
+        gap: 3vw;
+
+        .title {
+          font-family: "Comic Sans MS";
+          font-size: 5.5vw;
+          font-weight: bold;
+        }
+        .note {
+          font-size: 3.2vw;
+        }
+      }
+      .footer_box {
+        width: 100%;
+        display: flex;
+        padding: 4vw;
+        gap: 3vw;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        font-size: 3vw;
+        z-index: 2;
+        .customer,
+        .register {
+          width: 100%;
+          background-color: #9b73d3;
+          border-radius: 1vw;
+          padding: 2vw;
+          border-radius: 6px;
+          text-align: center;
+        }
+        .register {
+          background-color: white;
+          color: black;
+        }
       }
     }
   }
