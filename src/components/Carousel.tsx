@@ -1,40 +1,107 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 import "./carousel.scss";
-import p1 from "@/assets/p1.png";
-import p2 from "@/assets/p2.jpeg";
-import p3 from "@/assets/p3.png";
-import p4 from "@/assets/p4.jpeg";
-import p5 from "@/assets/p5.jpeg";
-
-const content = [p1, p2, p3, p4, p5, p1];
-let intervalDuration = 3000;
+import { Icon } from "@iconify/react/dist/iconify.js";
 
 const Carousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const imgRef = useRef(content.length);
+  const [startX, setStartX] = useState(0);
+  const [target, setTarget] = useState(0);
+
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    setStartX(e.changedTouches[0].clientX);
+  };
+
+  const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
+    const delta = event.changedTouches[0].clientX - startX;
+    const newIndex = target + (delta > 30 ? -1 : delta < -30 ? 1 : 0);
+    setTarget(Math.max(0, Math.min(3, newIndex)));
+  };
 
   useEffect(() => {
     const c = document.getElementById("carousel");
-    const intervalId = setInterval(() => {
-      if (!c) return;
+    if (!c) return;
 
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % imgRef.current);
+    const offset = target * 69;
+    c.style.transform = `translateX(-${offset}vw)`;
+    c.style.transition = "transform 0.5s ease";
 
-      c.style.transform = `translateX(-${currentIndex * 100}vw)`;
-      c.style.transition = currentIndex === 0 ? "none" : "transform 0.5s ease";
-      intervalDuration = currentIndex === 0 ? 0 : 3000;
-    }, intervalDuration);
+    for (let i = 0; i < 4; i++) {
+      const t = document.getElementById(`${i}`);
+      if (!t) continue;
 
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, [currentIndex]);
+      const scaleY = i === target ? "scale(1.2)" : "scale(1)";
+      t.style.transition = "transform 0.5s ease";
+      t.style.transform = scaleY;
+    }
+  }, [target]);
 
   return (
     <div className="carousel_container">
       <div className="carousel" id="carousel">
-        {content.map((img, index) => (
-          <img key={index} src={img} alt="" className="item" />
+        {[1, 2, 3, 4].map((_, index) => (
+          <div
+            key={index}
+            className="item"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
+            id={`${index}`}
+          >
+            <img src="https://picsum.photos/200" alt="" />
+            <div className="desc_box">
+              <div>大戶方案</div>
+              <div>
+                <span
+                  style={{ textDecoration: "line-through", fontSize: "2.5vw" }}
+                >
+                  ¥ 599.99
+                </span>
+                {" / "}
+                <span style={{ color: "#9e7ed6" }}>¥ 499.99</span>
+              </div>
+            </div>
+            <div className="unlock_box">
+              <div className="list_box">
+                <div className="list">
+                  <Icon icon="ph:seal-check-fill" color="#8ECD93"></Icon>
+                  移除視頻廣告
+                </div>
+                <div className="list">
+                  <Icon icon="ph:seal-check-fill" color="#8ECD93"></Icon>
+                  移除橫幅廣告
+                </div>
+                <div className="list">
+                  <Icon icon="ph:seal-check-fill" color="#8ECD93"></Icon>
+                  開啟上傳權限
+                </div>
+                <div className="list">
+                  <Icon icon="ph:seal-check-fill" color="#8ECD93"></Icon>
+                  新功能試用
+                </div>
+                <div className="list">
+                  <Icon icon="ph:seal-check-fill" color="#8ECD93"></Icon>
+                  專屬內容
+                </div>
+              </div>
+            </div>
+            <div className="pay_box">
+              <div className="customer">馬上支付</div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="dot_box">
+        {[1, 2, 3, 4].map((_, index) => (
+          <div
+            key={index}
+            className="dot"
+            style={
+              target === index
+                ? {
+                    backgroundColor: "#9e7ed6",
+                    transform: "scale(2)",
+                  }
+                : {}
+            }
+          ></div>
         ))}
       </div>
     </div>

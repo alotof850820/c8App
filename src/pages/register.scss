@@ -1,0 +1,195 @@
+.register_container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  .bg_Img {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    z-index: 1;
+    mask-image: linear-gradient(to top, transparent 40%, black 100%);
+  }
+
+  .more {
+    margin-left: auto;
+    position: relative;
+    padding: 0 4vw;
+    &::after {
+      content: "";
+      width: 1.8vw;
+      height: 1.8vw;
+      border-radius: 50%;
+      position: absolute;
+      top: -10%;
+      right: 0;
+    }
+  }
+  .title_box {
+    width: 100%;
+    display: flex;
+    margin-top: 10vh;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 5vw;
+    gap: 3vw;
+    color: white;
+    z-index: 2;
+
+    .title {
+      font-family: "Comic Sans MS";
+      font-size: 5.5vw;
+      font-weight: bold;
+      margin-bottom: 2vw;
+    }
+    .note {
+      font-size: 3.2vw;
+    }
+  }
+  .main {
+    z-index: 2;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    .avator_box {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 6vw 0;
+      .avator {
+        position: relative;
+        width: 20vw;
+        height: 20vw;
+        img {
+          width: 20vw;
+          height: 20vw;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+        .icon {
+          position: absolute;
+          width: 5vw;
+          height: 5vw;
+          border-radius: 50%;
+          bottom: 0;
+          right: 5%;
+          background-color: white;
+          color: grey;
+          padding: 0.5vw;
+        }
+      }
+    }
+    .detail_box {
+      display: flex;
+      flex-direction: column;
+      padding: 0 6vw;
+      gap: 3vw;
+
+      .top_box {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 3vw;
+        .email {
+          font-size: 3vw;
+          font-weight: 400;
+          margin-left: 4vw;
+        }
+        .input_box {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          gap: 3vw;
+          .icon {
+            position: absolute;
+            left: 5%;
+            top: 30%;
+            color: #d0cbd6;
+          }
+          input {
+            width: 100%;
+            height: 8vh;
+            border-radius: 12px;
+            border: 2px solid transparent;
+            padding-left: 14vw;
+            background-color: #4d4d4d;
+            
+
+            &:focus {
+              outline: none;
+              border: 2px solid #9b73d3;
+            }
+
+            &::placeholder {
+              color: #c8c1cd;
+              font-weight: 300;
+              font-size: 4.5vw;
+            }
+          }
+          textarea {
+            width: 100%;
+            border-radius: 12px;
+            border: 2px solid transparent;
+            padding: 4vw ;
+            background-color: #4d4d4d;
+            box-sizing: border-box;
+
+            &:focus {
+              outline: none;
+              border: 2px solid #9b73d3;
+            }
+
+            &::placeholder {
+              color: #c8c1cd;
+              font-weight: 300;
+              font-size: 4.5vw;
+            }
+          }
+          select {
+            width: 100%;
+            border-radius: 12px;
+            border: 2px solid transparent;
+            padding: 4vw ;
+            background-color: #4d4d4d;
+            box-sizing: border-box;
+            color: white;
+
+            &:focus {
+              outline: none;
+              border: 2px solid #9b73d3;
+            }
+          }
+        }
+      }
+    }
+    .footer_box {
+        margin-top: auto;
+        width: 100%;
+        display: flex;
+        padding: 4vw;
+        gap: 3vw;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-size: 4vw;
+        .customer {
+          width: 100%;
+          background-color: #9b73d3;
+          padding: 2vw;
+          border-radius: 1vw;
+          padding: 3vw;
+          border-radius: 6px;
+          text-align: center;
+        }
+      }
+  }
+}

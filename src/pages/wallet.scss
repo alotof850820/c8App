@@ -1,0 +1,172 @@
+@import "@/variables.scss";
+
+.wallet_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  .main {
+    display: flex;
+    flex-direction: column;
+    gap: 4vw;
+    width: 100%;
+    height: 100%;
+    padding: 5vw;
+    overflow: auto;
+    .myCoin {
+      margin-top: 8vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 5vw;
+      padding: 8vw 0;
+      flex-direction: column;
+      color: #e9e5e8;
+      .num {
+        display: flex;
+        align-items: center;
+        gap: 1vw;
+      }
+    }
+    .checkin {
+      display: flex;
+      flex-direction: column;
+      background-color: #313131;
+      padding: 4vw;
+      border-radius: 8px;
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .title {
+          display: flex;
+          flex-direction: column;
+          gap: 2vw;
+          .up {
+            display: flex;
+            gap: 2vw;
+            span {
+              color: #8f8f8f;
+              display: flex;
+              align-items: center;
+            }
+          }
+          .down {
+            font-size: 3.5vw;
+            color: #8f8f8f;
+          }
+        }
+        .note {
+          font-size: 3.5vw;
+          color: #c7c7c7;
+          display: flex;
+          align-items: center;
+          gap: 2vw;
+        }
+      }
+      .check_box {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 2vw;
+        width: 100%;
+        height: 100%;
+        padding: 4vw 0;
+        .item_box {
+          display: flex;
+          flex-direction: column;
+          gap: 1vw;
+          align-items: center;
+          .item {
+            background-color: #4d4d4d;
+            border-radius: 50%;
+            min-width: 9vw;
+            min-height: 9vw;
+            font-size: 3.5vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .day {
+            font-size: 3vw;
+            color: #d2d2d2;
+          }
+        }
+      }
+      .checkBtn {
+        display: flex;
+        justify-content: center;
+        margin: 4vw;
+        border-radius: 6px;
+        padding: 3.5vw 0;
+        font-size: 4vw;
+      }
+    }
+    .mission_box {
+      display: flex;
+      flex-direction: column;
+      background-color: #313131;
+      padding: 4vw;
+      border-radius: 8px;
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .title {
+          display: flex;
+          flex-direction: column;
+          gap: 2vw;
+          .up {
+            display: flex;
+            gap: 2vw;
+            color: #d2d2d2;
+          }
+        }
+      }
+      .check_box {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 4vw;
+        width: 100%;
+        height: 100%;
+        padding: 4vw 0;
+        .item_box {
+          display: flex;
+          gap: 4vw;
+          align-items: center;
+
+          .avator {
+            background-color: #d1c9df;
+            border-radius: 50%;
+            min-width: 12vw;
+            min-height: 12vw;
+            font-size: 7vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .context {
+            display: flex;
+            flex-direction: column;
+            .desc {
+              font-size: 3.5vw;
+              color: #939393;
+            }
+          }
+          .execute,
+          .executed {
+            margin-left: auto;
+            background-color: $primary_color;
+            border-radius: 12px;
+            padding: 1vw 4.5vw;
+            font-size: 3vw;
+          }
+          .executed {
+            background-color: #4E4E4E;
+            color: #939393;
+          }
+        }
+      }
+    }
+  }
+}

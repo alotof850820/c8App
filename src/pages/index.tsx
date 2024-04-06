@@ -5,8 +5,8 @@ import bg from "@/assets/bg.webp";
 const Index = () => {
   const { go } = useNavigate();
   return (
-    <div className="index_container">
-      <div className="bg_box">
+    <div className="index_container ">
+      <div className="bg_box theme_bg">
         <img className="bg" src={bg} alt="" />
         <img className="bg1" src={bg} alt="" />
       </div>

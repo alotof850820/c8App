@@ -15,6 +15,7 @@ const Home = () => {
             icon="simple-line-icons:magnifier"
             fontSize={"5.5vw"}
             fontWeight={"bolder"}
+            onClick={() => go("/search")}
           ></Icon>
           <div className="avator_box theme_note" onClick={() => go("/mine")}>
             <img
@@ -29,7 +30,7 @@ const Home = () => {
         <div className="users_box">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(() => (
             <div className="user" key={Math.random()}>
-              <div className="avator theme_avatar">
+              <div className="avator theme_avatar" onClick={() => go("/userHome")}>
                 <img
                   src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
                   alt=""
@@ -51,7 +52,7 @@ const Home = () => {
         </div>
         <div className="video_box">
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((_, index) => (
-            <Video index={index} key={Math.random()} />
+            <Video onClick={() => go(`/video/${index}`)} index={index} key={Math.random()} />
           ))}
         </div>
       </div>

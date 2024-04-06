@@ -1,17 +1,98 @@
 .carousel_container {
   overflow: hidden;
-  margin-top: calc(4vw + 2vh);
+  width: 100%;
+  height: 100%;
+  padding: 10vw 20vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
   &::-webkit-scrollbar {
     display: none;
   }
   .carousel {
     display: flex;
+    align-items: center;
+    gap: 10vw;
     .item {
-      min-width: 100vw;
-      height: 55vw;
+      min-width: 60vw;
+      min-height: 45vh;
       object-fit: contain;
-      margin-top: calc(0.5vw + 0.5vh);
+      background-color: #252525;
+      border-radius: 12px;
+      border: 1px solid #4d4d4d;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      img {
+        width: 100%;
+        height: 25vw;
+        object-fit: cover;
+        border-radius: 12px 12px 0 0;
+      }
+      .desc_box {
+        font-size: 3.5vw;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 3vw 1vw 3vw;
+        padding-bottom: 2vw;
+        border-bottom: 1px solid #4d4d4d;
+      }
+      .unlock_box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        .list_box {
+          display: flex;
+          justify-content: center;
+          align-items: baseline;
+          flex-direction: column;
+          gap: 1vw;
+          .list {
+            display: flex;
+            align-items: center;
+            gap: 1vw;
+            font-size: 3.5vw;
+            color: #d2d2d2;
+          }
+        }
+      }
+      .pay_box {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-size: 2vw;
+        margin-bottom: 2vw;
+        z-index: 2;
+ ;
+        .customer {
+          width: 80%;
+          background-color: #9b73d3;
+          border-radius: 1vw;
+          padding:2vw 3vw;
+          border-radius: 6px;
+          text-align: center;
+        }
+      }
+    }
+  }
+  .dot_box {
+    display: flex;
+    justify-content: center;
+    gap: 2vw;
+    min-width: 60vw;
+    margin-top: 6vh;
+
+    .dot {
+      width: 1vw;
+      height: 1vw;
+      border-radius: 50%;
+      background-color: #4d4d4d;
     }
   }
 }

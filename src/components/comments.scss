@@ -1,0 +1,59 @@
+.comments_backdrop_component {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9;
+  .popup_box_component {
+    z-index: 9999999999;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 43vw;
+    display: flex;
+    flex-direction: column;
+    padding: 0 6vw;
+    animation: slide-up 0.3s ease forwards;
+    transform: translateY(100%);
+
+    .comments-content {
+      position: relative;
+      .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2vw 0;
+      }
+
+      .comments-inner-content {
+        overflow-y: auto;
+      }
+    }
+
+    &.fade-out {
+      animation: slide-down 0.3s ease forwards;
+    }
+
+    @keyframes slide-up {
+      from {
+        transform: translateY(100%);
+      }
+      to {
+        transform: translateY(0%);
+      }
+    }
+    @keyframes slide-down {
+      from {
+        transform: translateY(0%);
+      }
+      to {
+        transform: translateY(100%);
+      }
+    }
+  }
+}

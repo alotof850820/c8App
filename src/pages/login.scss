@@ -42,9 +42,13 @@
       gap: 4vw;
       .top_box {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 3vw;
         .email {
           font-size: 3vw;
           font-weight: 400;
+          margin-left: 4vw;
         }
         .input_box {
           display: flex;
@@ -57,7 +61,6 @@
             left: 5%;
             top: 30%;
             color: #d0cbd6;
-          
           }
           input {
             width: 100%;
@@ -69,7 +72,7 @@
 
             &:focus {
               outline: none;
-              border: 2px solid #9B73D3;
+              border: 2px solid #9b73d3;
             }
 
             &::placeholder {
@@ -82,7 +85,10 @@
       }
       .note {
         font-size: 3.2vw;
-        color: #D5D0D4;
+        color: #d5d0d4;
+        display: flex;
+        gap: 1vw;
+        flex-direction: column;
       }
     }
     .footer_box {
@@ -95,9 +101,9 @@
       justify-content: center;
       flex-direction: column;
       font-size: 4vw;
-      .customer{
+      .customer {
         width: 100%;
-        background-color: #9B73D3;
+        background-color: #9b73d3;
         padding: 2vw;
         border-radius: 1vw;
         padding: 3vw;

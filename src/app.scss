@@ -47,6 +47,17 @@ body,
   word-break: break-all;
 }
 
+.input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  width: 100%;
+  border-radius: 12px;
+  font-size: 4vw;
+  color: black;
+  padding: 2vw 6vw;
+}
+
 body.dark {
   .theme_bg {
     background-color: $theme_dark;

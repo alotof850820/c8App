@@ -6,14 +6,19 @@ const TopBar = ({
   title,
   children,
   style,
+  className,
 }: {
   title?: string;
   children?: JSX.Element;
   style?: React.CSSProperties;
+  className?: string;
 }) => {
   const { goBack } = UseNavigate();
   return (
-    <div className="top_bar " style={style}>
+    <div
+      style={style}
+      className={className ? className + " top_bar" : "top_bar"}
+    >
       <div className="top_box">
         <Icon
           className="icon theme_font"

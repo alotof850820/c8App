@@ -1,32 +1,34 @@
-import { ReactNode, Suspense, lazy } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
-
-const lazyLoad = (children: ReactNode): ReactNode => {
-  return <Suspense >{children}</Suspense>;
-};
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Index from "../pages/index";
+import Home from "../pages/home";
+import Mine from "../pages/mine";
+import Video from "../pages/video";
+import Login from "../pages/login";
+import Register from "../pages/register";
+import Setting from "../pages/setting";
+import UserHome from "../pages/userHome";
+import Search from "../pages/search";
+import Edit from "../pages/edit";
+import Wallet from "../pages/wallet";
+import Payment from "../pages/payment";
 
 const RouterComponent = () => {
-  const Index = lazy(() => import("../pages/index"));
-  const Home = lazy(() => import("../pages/home"));
-  const Mine = lazy(() => import("../pages/mine"));
-  const Video = lazy(() => import("../pages/video"));
-  const Login = lazy(() => import("../pages/login"));
-
-
-
   return (
     <Router>
       <Routes>
-        <Route path="/" element={lazyLoad(<Index />)} />
-        <Route path="/home" element={lazyLoad(<Home />)} />
-        <Route path="/video/:id?" element={lazyLoad(<Video />)} />
-        <Route path="/mine" element={lazyLoad(<Mine />)} />
-        <Route path="/login" element={lazyLoad(<Login />)} />
-        <Route path="*" element={lazyLoad(<Home />)} />
+        <Route path="/" element={<Index />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/video/:id?" element={<Video />} />
+        <Route path="/mine" element={<Mine />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/setting" element={<Setting />} />
+        <Route path="/userHome" element={<UserHome />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/edit" element={<Edit />} />
+        <Route path="/wallet" element={<Wallet />} />
+        <Route path="/payment" element={<Payment />} />
+        <Route path="*" element={<Home />} />
       </Routes>
     </Router>
   );

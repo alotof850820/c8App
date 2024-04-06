@@ -1,14 +1,16 @@
 import TopBar from "@/components/TopBar";
-import "./mine.scss";
+import "./userHome.scss";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useEffect, useState } from "react";
 import UseNavigate from "@/router/hook";
+import Popup from "@/components/Popup";
 
-const Mine = () => {
+const UserHome = () => {
   const { go } = UseNavigate();
 
   const [Yvalue, setYvalue] = useState(40);
   const [showTab, setShowTab] = useState(1);
+  const [showMore, setShowMore] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,8 +31,12 @@ const Mine = () => {
   const goVideo = (videoId: number) => {
     go(`/video/${videoId}`);
   };
+  const close = () => {
+    setShowMore(false);
+  }
+
   return (
-    <div className="mine_container theme_bg">
+    <div className="userHome_container theme_bg">
       <img
         className="bg_Img"
         src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
@@ -40,25 +46,25 @@ const Mine = () => {
         }}
       />
       <TopBar
-        title="我的"
+        title="館長視頻"
         style={{
           backgroundColor: `rgba(0, 0, 0, ${
             Yvalue > 114 ? 1 : ((Yvalue - 90) * 2.8) / 100
           })`,
         }}
       >
-        <div className="more theme_note" onClick={() => go("/setting")}>
+        <div className="more theme_note" onClick={() => setShowMore(true)}>
           <Icon className=" theme_font" icon="fontisto:more-v-a"></Icon>
         </div>
       </TopBar>
       <div className="main">
         <div className="detail_box">
-          <div className="avator" onClick={() => go("/register")}>
+          <div className="avator" onClick={() => go("/edit")}>
             <img
               src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
               alt=""
             />
-            <Icon className="icon theme_icon" icon="ic:round-edit"></Icon>
+            <div className="icon theme_font">Lv1</div>
           </div>
           <div className="detail">
             <div className="item_box">
@@ -81,13 +87,10 @@ const Mine = () => {
             45sxwsxwdxw645sxwsxwdxw645sxwsxwdxw645sxwsxwdxw645sxwsxwdxw645sxwsxwdxw645sxwsxwdxw645sxwsxwdxw645sxwsxwdxw645sxwsxwdxw645sxwsxwdxw645sxwsxwdxw645sxwsxwdxw645sxwsxwdxw6
           </div>
           <div className="option">
-            <div className="check theme_btn" onClick={() => go("/wallet")}>簽到</div>
-            <div className="pay theme_btn" onClick={() => go("/payment")}>充值</div>
-            <div className="set theme_btn" onClick={() => go("/setting")}>
-              <Icon
-                className="icon theme_font"
-                icon="lets-icons:filter-big"
-              ></Icon>
+            <div className="check theme_btn">點贊</div>
+            <div className="pay theme_btn">關注</div>
+            <div className="set theme_btn">
+              <Icon className="icon theme_font" icon="mdi:heart-outline"></Icon>
             </div>
           </div>
         </div>
@@ -105,7 +108,7 @@ const Mine = () => {
             onClick={() => setShowTab(0)}
           >
             <Icon className="icon" icon="octicon:video-16"></Icon>
-            我的作品
+            TA的作品
           </div>
           <div
             className={
@@ -114,7 +117,7 @@ const Mine = () => {
             onClick={() => setShowTab(1)}
           >
             <Icon className="icon" icon="mdi:star-outline"></Icon>
-            我的收藏
+            收藏
           </div>
           <div
             className={
@@ -122,8 +125,8 @@ const Mine = () => {
             }
             onClick={() => setShowTab(2)}
           >
-            <Icon className="icon" icon="ic:round-history"></Icon>
-            觀看紀錄
+            <Icon className="icon" icon="mdi:heart-outline"></Icon>
+            喜歡
           </div>
         </div>
         {showTab === 0 && (
@@ -181,17 +184,36 @@ const Mine = () => {
             <div className="empty_box">
               <div className="title_box">
                 <div className="title theme_font">還沒有作品</div>
-                <div className="desc theme_desc">想上傳自己的精彩視頻賺點快嗎?</div>
+                <div className="desc theme_desc">
+                  想上傳自己的精彩視頻賺點快嗎?
+                </div>
               </div>
-              <div className="create theme_btn">
-                立即申請
-              </div>
+              <div className="create theme_btn">立即申請</div>
             </div>
           </div>
         )}
       </div>
+
+      <Popup
+        className="popup theme_font"
+        show={showMore}
+        height="15vh"
+        background="#252525"
+        onClose={close}
+      >
+        <div className="popup_box">
+          <div className="cancel " onClick={close}>
+            <Icon className="icon" icon="material-symbols:share"></Icon>
+            分享
+          </div>
+          <div className="confirm " onClick={close}>
+            <Icon className="icon" icon="material-symbols:info-outline"></Icon>
+            檢舉
+          </div>
+        </div>
+      </Popup>
     </div>
   );
 };
 
-export default Mine;
+export default UserHome;
