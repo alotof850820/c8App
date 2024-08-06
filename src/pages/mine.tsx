@@ -3,9 +3,12 @@ import "./mine.scss";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useEffect, useState } from "react";
 import UseNavigate from "@/router/hook";
+import { motion } from "framer-motion";
+import useStore from "@/store/user";
 
 const Mine = () => {
   const { go } = UseNavigate();
+  const { clickedX } = useStore();
 
   const [Yvalue, setYvalue] = useState(40);
 
@@ -52,13 +55,18 @@ const Mine = () => {
       </TopBar>
       <div className="main">
         <div className="detail_box">
-          <div className="avator">
+          <motion.div
+            className="avator"
+            initial={{ x: clickedX || 0 }}
+            animate={{ x: 0 }}
+            transition={{ duration: 0.5 }} // 可选的过渡时间
+          >
             <img
               src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
               alt=""
             />
             <Icon className="icon theme_icon" icon="ic:round-edit"></Icon>
-          </div>
+          </motion.div>
           <div className="detail">
             <div className="item_box">
               <div className="num theme_font">1.25k</div>

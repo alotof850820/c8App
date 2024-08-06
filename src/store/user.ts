@@ -1,20 +1,18 @@
 // useStore.ts
 import { create } from "zustand";
 
-interface State {
-  count: number;
-  doubleCount: number;
-  increment: () => void;
+interface StoreState {
+  clickedIndex: number | null;
+  setClickedIndex: (index: number | null) => void;
+  clickedX: number | null;
+  setClickedX: (index: number | null) => void;
 }
 
-const useStore = create<State>((set) => ({
-  count: 0,
-  doubleCount: 0,
-  increment: () =>
-    set((state) => ({
-      count: state.count + 1,
-      doubleCount: (state.count + 1) * 2,
-    })),
+export const useStore = create<StoreState>((set) => ({
+  clickedIndex: null,
+  setClickedIndex: (index) => set({ clickedIndex: index }),
+  clickedX: null,
+  setClickedX: (index) => set({ clickedX: index }),
 }));
 
 export default useStore;
