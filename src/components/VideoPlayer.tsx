@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect, ChangeEvent } from "react";
-import "./videoPlayer.scss";
 import { Icon } from "@iconify/react/dist/iconify.js";
 
 interface CustomVideoPlayerProps {
@@ -69,15 +68,15 @@ const CustomVideoPlayer: React.FC<CustomVideoPlayerProps> = ({ src }) => {
   };
 
   return (
-    <div className="video_player_container">
+    <div className="relative">
       <video
         controls={false}
-        className="video"
+        className="w-full h-full object-contain"
         playsInline
         ref={videoRef}
         src={src}
       ></video>
-      <div className="control_box">
+      <div className="absolute bottom-0 left-0 w-full z-[1]">
         <input
           id="range2"
           className="range-input"
@@ -89,10 +88,10 @@ const CustomVideoPlayer: React.FC<CustomVideoPlayerProps> = ({ src }) => {
           onChange={handleSliderChange}
         />
       </div>
-      <button className="play_pause" onClick={handlePlayPause}>
+      <button className="absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] text-[8vw] text-white z-[1]" onClick={handlePlayPause}>
         {isPlaying ? "Pause" : "Play"}
       </button>
-      <div className="fullScream theme_font" onClick={setFullScream}>
+      <div className="absolute right-[4vw] bottom-[4vw] text-[5vw] text-white z-[1] theme_font" onClick={setFullScream}>
         <Icon icon="material-symbols:fullscreen"></Icon>
       </div>
     </div>

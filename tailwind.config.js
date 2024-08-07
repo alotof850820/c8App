@@ -10,6 +10,7 @@ export default {
         "custom-gray-200": "#666666", // 深
         "custom-gray-300": "#333", // 超深
         "custom-yellow-100": "#A08977", // 超深
+        "custom-primary": "#9e7ed6",
 
       },
       fontFamily: {
@@ -18,7 +19,7 @@ export default {
         mono: ["Courier", "monospace"],
       },
       screens: {
-        xs: "684px",
+        xs: "600px",
       },
     },
   },

@@ -1,0 +1,25 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+.range-input {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    outline: none;
+    border-radius: 15px;
+    height: 1vw;
+    background: #ccc;
+  }
+  
+  .range-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 3.5vw;
+    width: 3.5vw;
+    background-color: white;
+    border-radius: 50%;
+    border: 1vw solid #9e7ed6;
+    transition: 0.2s ease-in-out;
+  }

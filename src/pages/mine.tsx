@@ -1,5 +1,4 @@
 import TopBar from "@/components/TopBar";
-import "./mine.scss";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useEffect, useState } from "react";
 import UseNavigate from "@/router/hook";
@@ -32,9 +31,9 @@ const Mine = () => {
     go(`/video/${videoId}`);
   };
   return (
-    <div className="mine_container theme_bg">
+    <div className="w-full min-h-[100vh] flex flex-col relative theme_bg">
       <img
-        className="bg_Img"
+        className="absolute w-full h-[100vh] object-cover z-[1]"
         src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
         alt=""
         style={{
@@ -49,48 +48,49 @@ const Mine = () => {
           })`,
         }}
       >
-        <div className="more theme_note">
+        <div className="ml-auto relative px-[4vw] theme_note">
           <Icon className=" theme_font" icon="fontisto:more-v-a"></Icon>
         </div>
       </TopBar>
-      <div className="main">
-        <div className="detail_box">
+      <div className="z-[2]">
+        <div className="flex items-center justify-between mt-[10vh] px-[6vw]">
           <motion.div
-            className="avator"
+            className="w-[20vw] h-[20vw] rounded-full relative"
             initial={{ x: clickedX || 0 }}
             animate={{ x: 0 }}
             transition={{ duration: 0.5 }} // 可选的过渡时间
           >
             <img
+            className="w-full h-full object-cover rounded-full"
               src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
               alt=""
             />
-            <Icon className="icon theme_icon" icon="ic:round-edit"></Icon>
+            <Icon className="absolute bottom-0 right-0 w-[5vw] h-[5vw] bg-zinc-800 p-[1vw] rounded-full theme_icon" icon="ic:round-edit"></Icon>
           </motion.div>
-          <div className="detail">
-            <div className="item_box">
-              <div className="num theme_font">1.25k</div>
-              <div className="item theme_desc">點贊</div>
+          <div className="flex gap-[15vw]">
+            <div className="flex flex-col items-center justify-center gap-[2vw]">
+              <div className="text-[4.3vw] font-bold theme_font">1.25k</div>
+              <div className="text-[3.3vw] font-normal theme_desc">點贊</div>
             </div>
-            <div className="item_box">
-              <div className="num theme_font">647</div>
-              <div className="item theme_desc">關注</div>
+            <div className="flex flex-col items-center justify-center gap-[2vw]">
+              <div className="text-[4.3vw] font-bold theme_font">647</div>
+              <div className="text-[3.3vw] font-normal theme_desc">關注</div>
             </div>
-            <div className="item_box">
-              <div className="num theme_font">81</div>
-              <div className="item theme_desc">收藏</div>
+            <div className="flex flex-col items-center justify-center gap-[2vw]">
+              <div className="text-[4.3vw] font-bold theme_font">81</div>
+              <div className="text-[3.3vw] font-normal theme_desc">收藏</div>
             </div>
           </div>
         </div>
-        <div className="desc_box">
-          <div className="name theme_font">橙汁汗</div>
-          <div className="desc theme_desc limit_row_3">
+        <div className="mt-[2vw] px-[6vw] flex flex-col gap-[2vw]">
+          <div className="text-[4.5vw] font-normal theme_font">橙汁汗</div>
+          <div className="text-[4vw] font-thin break-all theme_desc limit_row_3">
             45sxwsxwdxw645sxwsxwdxw645sxwsxwdxw645sxwsxwdxw645sxwsxwdxw645sxwsxwdxw645sxwsxwdxw645sxwsxwdxw645sxwsxwdxw645sxwsxwdxw645sxwsxwdxw645sxwsxwdxw645sxwsxwdxw645sxwsxwdxw6
           </div>
-          <div className="option">
-            <div className="check theme_btn">簽到</div>
-            <div className="pay theme_btn">充值</div>
-            <div className="set theme_btn">
+          <div className="flex gap-[2vw]">
+            <div className="px-[15vw] py-[2vw] text-[3.5vw] font-light flex items-center justify-center rounded theme_btn">簽到</div>
+            <div className="px-[15vw] py-[2vw] text-[3.5vw] font-light flex items-center justify-center rounded theme_btn">充值</div>
+            <div className="p=[2vw] text-[5vw] font-light flex items-center justify-center rounded theme_btn">
               <Icon
                 className="icon theme_font"
                 icon="lets-icons:filter-big"
@@ -99,45 +99,45 @@ const Mine = () => {
           </div>
         </div>
         <div
-          className="tab_box sticky"
+          className="flex justify-between sticky top-[8.8vh] z-[3]"
           style={{
             backgroundColor:
               (Yvalue - 40) * 2.8 < 160 ? `transparent` : "rgba(0, 0, 0, 1)",
           }}
         >
-          <div className="tab theme_tab1 ">
-            <Icon className="icon" icon="octicon:video-16"></Icon>
+          <div className="text-[3.5vw] font-light px-[6vw] py-[5vw] flex items-center justify-center gap-[1vw] theme_tab1 ">
+            <Icon className="w-[4.5vw] h-[4.5vw]" icon="octicon:video-16"></Icon>
             我的作品
           </div>
-          <div className="tab theme_tab1 active">
-            <Icon className="icon" icon="mdi:star-outline"></Icon>
+          <div className="text-[3.5vw] font-light px-[6vw] py-[5vw] flex items-center justify-center gap-[1vw] theme_tab1 active">
+            <Icon className="w-[4.5vw] h-[4.5vw]" icon="mdi:star-outline"></Icon>
             我的收藏
           </div>
-          <div className="tab theme_tab1">
-            <Icon className="icon" icon="ic:round-history"></Icon>
+          <div className="text-[3.5vw] font-light px-[6vw] py-[5vw] flex items-center justify-center gap-[1vw] theme_tab1">
+            <Icon className="w-[4.5vw] h-[4.5vw]" icon="ic:round-history"></Icon>
             觀看紀錄
           </div>
         </div>
-        <div className="videos_box">
+        <div className="flex flex-wrap gap-[0.4vw]">
           {[
             1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 111, 211, 311,
             411, 511, 611, 711, 811, 911, 1011, 1111, 1211, 1311, 1411, 1511,
           ].map((item, index) => (
             <div
-              className="video_box"
+              className="relative w-[33vw] h-[33vw]"
               key={item}
               onClick={() => goVideo(index)}
             >
               <img
-                className="video"
+                className="w-full h-full object-cover"
                 src="https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80"
                 alt=""
               />
-              <div className="play_count">
+              <div className="bottom-[1vw] left-[2vw] absolute text-white text-[3.5vw] font-light flex items-center justify-center gap-[1vw]">
                 <Icon className="icon" icon="octicon:video-16"></Icon>
                 12k
               </div>
-              <div className="duration">23:18</div>
+              <div className="bottom-[1vw] right-[2vw] absolute text-white text-[3.5vw] font-light flex items-center justify-center gap-[1vw]">23:18</div>
             </div>
           ))}
         </div>
